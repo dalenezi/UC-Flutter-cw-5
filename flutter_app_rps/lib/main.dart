@@ -25,9 +25,31 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
   }
 
-// pic 1 is sci
-// pic 2 is rock
-//pic 3 is paper
+  // 1 is sci
+  // 2 is rock
+  // 3 is paper
+
+  String sayWho() {
+    var winner = '';
+    if (num1 == num2) {
+      winner = 'Draw';
+    } else if (num1 == 1 && num2 == 2) {
+      winner = 'Winner: player 2';
+    } else if (num1 == 1 && num2 == 3) {
+      winner = 'Winner: player 1';
+    } else if (num1 == 2 && num2 == 1) {
+      winner = 'Winner: player 1 ';
+    } else if (num1 == 2 && num2 == 3) {
+      winner = 'Winner: player 2 ';
+    } else if (num1 == 3 && num2 == 1) {
+      winner = 'Winner: player 2 ';
+    } else if (num1 == 3 && num2 == 2) {
+      winner = 'Winner: player 1 ';
+    }
+    String result1 = '$winner';
+
+    return result1;
+  }
 
   // This widget is the root of your application.
   @override
@@ -99,8 +121,13 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
-                child: Text(''),
+                margin: EdgeInsets.all(30),
+                child: Text(
+                  sayWho(),
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ],
           ),
